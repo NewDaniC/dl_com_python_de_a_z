@@ -1,0 +1,1 @@
+previsores = pd.read_csv('data/entradas_breast.csv')
