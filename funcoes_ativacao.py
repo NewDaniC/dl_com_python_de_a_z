@@ -26,15 +26,20 @@ def linearFunction(soma):
     return soma
 
 
-def softmaxFunction(x):
+def softmaxFunction(x): # Retorna a probabilidade de cada classe
     ex = np.exp(x)
     return ex / ex.sum()
 
 
 teste = stepFunction(-1)
+print(teste)
 teste = sigmoidFunction(-0.358)
+print(teste)
 teste = tahnFunction(-0.358)
+print(teste)
 teste = reluFunction(0.358)
+print(teste)
 teste = linearFunction(-0.358)
+print(teste)
 valores = [7.0, 2.0, 1.3]
 print(softmaxFunction(valores))
