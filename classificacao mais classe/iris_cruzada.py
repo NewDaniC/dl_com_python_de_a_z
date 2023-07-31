@@ -2,7 +2,16 @@ import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
 from tensorflow.keras.utils import to_categorical
-from keras.wrappers.scikit_learn import KerasClassifier
+#from keras.wrappers.scikit_learn import KerasClassifier
+#from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+from scikeras.wrappers import KerasClassifier
+#from tensorflow import keras
+#from tensorflow.keras.layers import BatchNormalization
+#from scikeras.wrappers import KerasClassifier
+
+#from keras.wrappers.scikit_learn import KerasClassifier
+#from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+
 from sklearn.model_selection import cross_val_score
 
 base = pd.read_csv('iris.csv')
@@ -26,7 +35,7 @@ classificador = KerasClassifier(build_fn = criar_rede,
                                 epochs = 1000,
                                 batch_size = 10)
 resultados = cross_val_score(estimator = classificador,
-                             X = previsores, y = classe,
+                             X = previsores, y = classe_dummy,
                              cv = 10, scoring = 'accuracy')
 media = resultados.mean()
 desvio = resultados.std()
